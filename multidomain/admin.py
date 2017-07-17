@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import domain_class
+
+
+@admin.register(domain_class)
+class DomainAdmin(admin.ModelAdmin):
+    pass

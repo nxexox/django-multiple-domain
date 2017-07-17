@@ -9,4 +9,5 @@ class MultiDomainConfig(AppConfig):
     verbose_name = _("MultiDomain")
 
     def ready(self):
-        pass
+        super(MultiDomainConfig, self).ready()
+        class_prepared.send(self.get_model("Domain"))  # send signal, for register actual domain model
