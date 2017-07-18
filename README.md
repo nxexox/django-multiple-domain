@@ -1,4 +1,4 @@
-# django-multidomain
+# django-multiple-domain
 App for multi domain in django. Python2.x, Python3.x, Django>=1.4
 
 Add request.host with subdomain value or None
