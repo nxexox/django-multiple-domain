@@ -22,6 +22,12 @@ Quick start
 ```
 3. Run `python manage.py migrate` to create the multidomain models.
 
+In request object add two objects:
+ * request.domain - Domain model from request objects or None
+ * request.get_domain(request, reverse_url=None, *args, **kwargs) - Function by get domain.
+    * request - required argument
+    * reverse_lazy = optional. String format for reverse_lazy django function.
+    * args, kwargs - optional arguments, for reverse_lazy.
 
 TODO:
 1) Localization

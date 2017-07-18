@@ -1,3 +1,5 @@
+# coding: utf8
+import multidomain
 import os
 from setuptools import setup
 
@@ -10,10 +12,10 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-multidomain',
-    version='0.1',
+    version=multidomain.__version__,
     packages=['multidomain'],
-    include_package_data=True,
-    license='MIT License',  # example license
+    include_package_data=True,  # Включаем все файлы
+    license='MIT',  # Ставим дицензию
     description='App for multi domain in django. Python2.x, Python3.x, Django>=1.4',
     long_description=README,
     url='http://www.example.com/',
@@ -23,7 +25,7 @@ setup(
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
-        'License :: MIT License',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
@@ -35,4 +37,8 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    test_suite="multidomain.tests",
+    install_requires=[
+        "Django>=1.4"
+    ]
 )

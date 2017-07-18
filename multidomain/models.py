@@ -1,3 +1,4 @@
+# coding: utf8
 from distutils.version import LooseVersion
 
 from django import get_version

@@ -1,8 +1,10 @@
+# coding: utf8
 import re
 
 from django.utils.deprecation import MiddlewareMixin
 
 from .models import domain_class
+from .http import get_domain
 
 
 class GetDomainMiddleware(MiddlewareMixin):
@@ -20,7 +22,7 @@ class GetDomainMiddleware(MiddlewareMixin):
         self.ipv4_re = re.compile(r"^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:?[0-9]{0,5}$")
 
     def process_request(self, request):
-        request.host = None
+        request.get_domain = get_domain  # Add function, get_domain from request object
         domain, sub_domains = request.META['HTTP_HOST'], request.META['HTTP_HOST'].split('.')
         count = 2
 
